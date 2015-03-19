@@ -476,6 +476,8 @@ void displayWarning(uint8_t event);
 
 #if defined(PCBTARANIS)
   void menuChannelsView(uint8_t event);
+  void displayProgressBar(const char *label);
+  void updateProgressBar(int num, int den);
 #endif
 
 #define LABEL(...) (uint8_t)-1
