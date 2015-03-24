@@ -836,6 +836,7 @@ void flashBootloader(const char * filename)
 void flashSportDevice(ModuleIndex module, const char *filename)
 {
   pausePulses();
+  pauseMixerCalculations();
   watchdogSetTimeout(60*60*100/*1h*/);
 
   lcd_clear();
@@ -844,6 +845,7 @@ void flashSportDevice(ModuleIndex module, const char *filename)
   sportFirmwareUpdate(module, filename);
 
   watchdogSetTimeout(100/*1s*/);
+  resumeMixerCalculations();
   resumePulses();
 }
 #endif

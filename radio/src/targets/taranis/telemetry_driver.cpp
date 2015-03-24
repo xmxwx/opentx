@@ -82,8 +82,8 @@ void telemetryPortInit(uint32_t baudrate)
   USART_Cmd(SPORT_USART, ENABLE);
   USART_ITConfig(SPORT_USART, USART_IT_RXNE, ENABLE);
 
+  NVIC_SetPriority(SPORT_IRQn, 0);
   NVIC_EnableIRQ(SPORT_IRQn);
-  NVIC_SetPriority(SPORT_IRQn, 6);
 }
 
 struct SportTxBuffer
